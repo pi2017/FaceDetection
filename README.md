@@ -1,2 +1,2 @@
 # FaceDetection
-First programm try to detect face with WEB camera 
+First program try to detect face with WEB camera 
