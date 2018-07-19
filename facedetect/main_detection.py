@@ -2,7 +2,7 @@
 Web Academy
 FaceDetection
 Version 1.0
-Autor: Aleksii Savchenko
+Autor: Oleksii Savchenko
 Kiev
 2018
 -------------------------
