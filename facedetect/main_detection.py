@@ -4,6 +4,7 @@ FaceDetection
 Version 1.0
 Autor: Aleksii Savchenko
 Kiev
+2018
 -------------------------
 First step:
 pip3 install numpy
