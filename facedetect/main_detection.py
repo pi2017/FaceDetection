@@ -30,7 +30,7 @@ while 1:
 
     ret, face_detection = cap.read()
     gray = cv2.cvtColor(face_detection, cv2.COLOR_BGR2GRAY)
-    faces = face_cascade.detectMultiScale(gray, 1.2, 5)
+    faces = face_cascade.detectMultiScale(gray, 1.4, 5)
 
     for (x, y, w, h) in faces:
         cv2.rectangle(face_detection, (x, y), (x + w, y + h), (255, 0, 0), 1)
@@ -44,8 +44,9 @@ while 1:
             cv2.rectangle(roi_color, (ex, ey), (ex + ew, ey + eh), (0, 255, 0), 1)
 
     cv2.imshow('FaceDetection', face_detection)
-    k = cv2.waitKey(30) & 0xff  # Keyboard ESC
-    if k == 27:
+
+    if cv2.waitKey(1) == 0x1b:
+        print('ESC pressed. Exiting... ')
         break
 
 cap.release()
