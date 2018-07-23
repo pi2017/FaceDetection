@@ -17,6 +17,8 @@ from time import sleep
 
 import cv2
 
+sample_num = 0
+
 face_cascade = cv2.CascadeClassifier('./xml/haarcascade_frontalface_default.xml')
 eye_cascade = cv2.CascadeClassifier('./xml/haarcascade_eye.xml')
 
@@ -40,8 +42,8 @@ while 1:
         font = cv2.FONT_HERSHEY_SIMPLEX
         cv2.putText(face_detection, 'Your face is nice', (x - 15, y - 15), font, 0.6, (0, 255, 0), 1, cv2.LINE_AA)
 
-        #img = cv2.imwrite('./output/face_img_01.png', face_detection)
-        #print('Image saved... ', img)
+        # img = cv2.imwrite('./output/face_img_01.png', face_detection)
+        # print('Image saved... ', img)
 
         eyes = eye_cascade.detectMultiScale(roi_gray)
         for (ex, ey, ew, eh) in eyes:
@@ -49,13 +51,15 @@ while 1:
 
     cv2.imshow('FaceDetection', face_detection)
 
-
     if cv2.waitKey(1) == ord('q'):
         print('ESC pressed. Exiting... ')
         break
     if cv2.waitKey(1) == ord('s'):
-        img = cv2.imwrite('./output/face_img_02.png', face_detection)
+        sample_num = sample_num + 1
+        img = cv2.imwrite('./output/face_img' + str(sample_num)+'.png', face_detection)
         print('Image saved with keyb... ', img)
+    elif sample_num > 2:
+        break
 
 cap.release()
 cv2.destroyAllWindows()
