@@ -42,8 +42,6 @@ while 1:
         font = cv2.FONT_HERSHEY_SIMPLEX
         cv2.putText(face_detection, 'Your face is nice', (x - 15, y - 15), font, 0.6, (0, 255, 0), 1, cv2.LINE_AA)
 
-        # img = cv2.imwrite('./output/face_img_01.png', face_detection)
-        # print('Image saved... ', img)
 
         eyes = eye_cascade.detectMultiScale(roi_gray)
         for (ex, ey, ew, eh) in eyes:
