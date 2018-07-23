@@ -25,6 +25,7 @@ cap = cv2.VideoCapture(0)
 while 1:
     if not cap.isOpened():
         print('Unable to found WEB camera.')
+        print('Please connect your WEB camera in USB')
         sleep(5)
         pass
 
@@ -39,19 +40,22 @@ while 1:
         font = cv2.FONT_HERSHEY_SIMPLEX
         cv2.putText(face_detection, 'Your face is nice', (x - 15, y - 15), font, 0.6, (0, 255, 0), 1, cv2.LINE_AA)
 
-        img = cv2.imwrite('./output/face_img.png', face_detection)
-        print('Image saved... ', img)
+        #img = cv2.imwrite('./output/face_img_01.png', face_detection)
+        #print('Image saved... ', img)
 
         eyes = eye_cascade.detectMultiScale(roi_gray)
         for (ex, ey, ew, eh) in eyes:
             cv2.rectangle(roi_color, (ex, ey), (ex + ew, ey + eh), (0, 255, 0), 1)
 
     cv2.imshow('FaceDetection', face_detection)
-    keyb_ext = cv2.waitKey(1)
 
-    if keyb_ext == 27:
+
+    if cv2.waitKey(1) == ord('q'):
         print('ESC pressed. Exiting... ')
         break
+    if cv2.waitKey(1) == ord('s'):
+        img = cv2.imwrite('./output/face_img_02.png', face_detection)
+        print('Image saved with keyb... ', img)
 
 cap.release()
 cv2.destroyAllWindows()
