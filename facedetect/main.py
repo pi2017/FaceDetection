@@ -54,7 +54,8 @@ while 1:
         break
     if cv2.waitKey(1) == ord('s'):
         sample_num = sample_num + 1
-        img = cv2.imwrite('./output/face_img' + str(sample_num)+'.png', face_detection)
+        img = cv2.imwrite('C:/Users/Ausweis/PyCharmProjects/flask_sample/static/images/face_img' + str(sample_num)+'.png', face_detection)
+        #img = cv2.imwrite('./output/face_img' + str(sample_num)+'.png', face_detection)
         print('Image saved with key S ... ', img)
     elif sample_num > 2:
         break
