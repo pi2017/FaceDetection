@@ -46,17 +46,17 @@ while 1:
         for (ex, ey, ew, eh) in eyes:
             cv2.rectangle(roi_color, (ex, ey), (ex + ew, ey + eh), (0, 255, 0), 1)
 
-    cv2.imshow('FaceDetection', face_detection)
+    cv2.imshow('FaceDetection ver 1.0', face_detection)
 
     if cv2.waitKey(1) == ord('q'):
-        print('ESC pressed. Exiting... ')
+        print('q pressed. Exiting... ')
         break
+
     if cv2.waitKey(1) == ord('s'):
         sample_num = sample_num + 1
-        img = cv2.imwrite('./static/images/face_img' + str(sample_num) + '.png',
-            face_detection)
+        img = cv2.imwrite('./static/images/face_img' + str(sample_num) + '.png', face_detection)
 
-        print('Image saved with key S ... ', img)
+        print('Image saved with key s ... ', img)
     elif sample_num > 2:
         break
 
