@@ -42,7 +42,6 @@ while 1:
         font = cv2.FONT_HERSHEY_SIMPLEX
         cv2.putText(face_detection, 'Your face is nice', (x - 15, y - 15), font, 0.6, (0, 255, 0), 1, cv2.LINE_AA)
 
-
         eyes = eye_cascade.detectMultiScale(roi_gray)
         for (ex, ey, ew, eh) in eyes:
             cv2.rectangle(roi_color, (ex, ey), (ex + ew, ey + eh), (0, 255, 0), 1)
@@ -54,8 +53,9 @@ while 1:
         break
     if cv2.waitKey(1) == ord('s'):
         sample_num = sample_num + 1
-        img = cv2.imwrite('C:/Users/Ausweis/PyCharmProjects/flask_sample/static/images/face_img' + str(sample_num)+'.png', face_detection)
-        #img = cv2.imwrite('./output/face_img' + str(sample_num)+'.png', face_detection)
+        img = cv2.imwrite('./static/images/face_img' + str(sample_num) + '.png',
+            face_detection)
+
         print('Image saved with key S ... ', img)
     elif sample_num > 2:
         break
