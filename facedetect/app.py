@@ -1,7 +1,9 @@
+
+
 from os import listdir
 from flask import Flask, render_template
 
-app = Flask(__name__, static_url_path='/static')
+app = Flask(__name__, static_url_path='/static/images')
 
 
 @app.route('/')
