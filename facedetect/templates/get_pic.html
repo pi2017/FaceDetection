@@ -8,5 +8,9 @@
 {% for image in data %}
 <img src="{{ url_for('static', filename=image)}}" width="320" height="240" style="display: block"/>
 {% endfor %}
+
+<form action="/" method="get">
+    <p>Click here: <button type="submit">To Main</button>
+</form>
 </body>
 </html>

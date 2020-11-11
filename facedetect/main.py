@@ -4,7 +4,7 @@ FaceDetection
 Version 1.0
 Autor: Oleksii Savchenko
 Kiev
-2018
+2020
 -------------------------
 First step:
 pip3 install numpy
@@ -15,14 +15,20 @@ pip3 install Pillow
 """
 from time import sleep
 
+
 import cv2
+import app
+
 
 sample_num = 0
+
 
 face_cascade = cv2.CascadeClassifier('./xml/haarcascade_frontalface_default.xml')
 eye_cascade = cv2.CascadeClassifier('./xml/haarcascade_eye.xml')
 
+
 cap = cv2.VideoCapture(0)
+
 
 while 1:
     if not cap.isOpened():
@@ -54,7 +60,7 @@ while 1:
 
     if cv2.waitKey(1) == ord('s'):
         sample_num = sample_num + 1
-        img = cv2.imwrite('./static/images/face_img' + str(sample_num) + '.png', face_detection)
+        img = cv2.imwrite('./static/face_img' + str(sample_num) + '.png', face_detection)
 
         print('Image saved with key s ... ', img)
     elif sample_num > 2:
@@ -62,3 +68,7 @@ while 1:
 
 cap.release()
 cv2.destroyAllWindows()
+
+if __name__ == "__main__":
+    # execute only if run as a script
+    app.app.run()
